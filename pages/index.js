@@ -15,6 +15,7 @@ export default function Home() {
     <div className="root">
       <Head>
         <title>Portofolio</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Landing />
       <Projects />

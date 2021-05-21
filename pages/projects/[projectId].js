@@ -9,6 +9,7 @@
  import React from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link';
+import Head from 'next/head';
 import { projects, tagList } from '../../components/projects';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
@@ -35,6 +36,10 @@ export default function ProjectDetail(props) {
 
   return (
     <div className="root project-detail">
+      <Head>
+        <title>Project</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <div className="container" style={{height: '100%'}}>
 
         <div className="project-desc">
