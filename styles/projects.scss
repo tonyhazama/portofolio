@@ -204,6 +204,14 @@ $projectGap: 40px;
     .snapshot-item {
       width: calc(50% - 10px);
     }
+
+    .snapshot-item:only-child {
+      width: 100%;
+    }
+
+    .snapshot-item:nth-child(3n) {
+      width: 100%;
+    }
   }
 }
 

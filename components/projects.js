@@ -1,4 +1,12 @@
-import { useState } from "react";
+/**
+ * @author Tony Hazama
+ * @email tonyhazama4721@gmail.com
+ * @create date 2021-05-22 02:01:51
+ * @modify date 2021-05-22 02:01:51
+ * @desc This is my personal website
+ */
+
+ import { useState } from "react";
 import Link from 'next/link';
 
 export const projects = [
@@ -46,9 +54,16 @@ export const projects = [
   {
     title: "Trav", 
     type: "Mobile Design",
-    thumbnail: '/static/trav2.jpg',
+    thumbnail: '/static/trav1.jpg',
+    scope: [
+      'UI/UX',
+    ],
+    snapshot: [
+      '/static/trav2.jpg',
+    ],
     tags: [3],
-    description: 'We’re not selling “big agency services at small agency prices”. We deliver exceptional design solutions to complex business problems – extremely efficiently and delivered at lightning-fast pace.',
+    description: `Trav is an Mobile app that focus on helping you planned out your next holiday trip. Trav will help you find the great spot for you to spend your time. A place to eat, place to stay, family destination, romantic place, adventure time, or maybe a beautiful place to take a photos? we got you covered. 
+    \nA Clean design and responsive interaction, will help you plan the perfect trip you've been dreaming of. Combine that with over 500.000 Destination all around the globe, this app eliminate the needs to check each destination one by one, making it easier to make a perfect travel in a short time.`
   },
   {
     title: "Volimond Lab", 
@@ -57,8 +72,12 @@ export const projects = [
     tags: [3],
     snapshot: [
       '/static/vmdlab2.jpg',
+      '/static/vmdlab2.jpg',
+      '/static/vmdlab2.jpg',
+      '/static/vmdlab2.jpg',
     ],
-    description: 'We’re not selling “big agency services at small agency prices”. We deliver exceptional design solutions to complex business problems – extremely efficiently and delivered at lightning-fast pace.',
+    description: `VMDLAB (pronounced V.M.D Lab) is a Modern and Simplistic HTML5 Based Web template. Carefully constructed using latest trends in technology to make it look professional and classy but also user friendly. Suitable for every use case, starting from personal web, company profile, landing page, product description and other cool things.
+    \nThis is my personal project and also a project that i work on, to complete assignment in one of my class back at Vocational School.`,
   },
 ];
 export const tagList = ['All Tags', 'React JS', 'Angular', 'UI/UX', 'Node JS',  'ExpressJS'];

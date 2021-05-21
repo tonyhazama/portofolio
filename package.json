@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -b master -d out"
+    "deploy": "touch out/.nojekyll && next build && next export && gh-pages -b master -d out",
+    "push-deploy": "gh-pages -b master -d out"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
