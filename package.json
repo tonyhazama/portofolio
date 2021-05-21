@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "deploy": "touch out/.nojekyll && next build && next export && gh-pages -b master -d out",
+    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -b master -d out -t true",
+    "deploy2": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && touch out/CNAME&& echo \"tonyhazama.github.io\" >> out/CNAME&& gh-pages -b master -d out -t true",
     "push-deploy": "gh-pages -b master -d out"
   },
   "dependencies": {
