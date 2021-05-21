@@ -1,0 +1,216 @@
+// $projectCount: 3;
+$projectGap: 40px;
+
+@mixin make-projects($minWidth, $projectCount, $projectGap){
+  @media (min-width: $minWidth) {
+    .projects > .project {
+      width: calc((100% - (#{$projectGap} * (#{$projectCount} - 1))) / #{$projectCount});
+    }
+  }
+}
+
+.tags{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  span {
+    cursor: pointer;
+    display: block;
+    padding: .5em 2em;
+    background: rgba(0, 0, 0, .05);
+    margin: 0px 10px 10px;
+    border-radius: 4px;
+    transition: .3s;
+  }
+
+  span.active {
+    background: #281a12;
+    color: #fff;
+  }
+}
+
+.projects {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: $projectGap;
+}
+
+.projects > .project {
+    $duration: 300ms;
+    $delay: 150ms;
+    width: 100%;
+    margin-bottom: calc(#{$projectGap} / 2);
+    transition: $duration width $delay, $duration opacity, $duration margin $delay, $duration max-height $delay;
+    cursor: pointer;
+    max-height: 2000px;
+    position: relative;
+
+    &.hidden {
+      // overflow: hidden;
+      max-height: 0px;
+      width: 0px;
+      opacity: 0;
+      margin-left: -40px;
+    }
+    
+    .project-picture {
+        height: 240px;
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, .2);
+        background: #eee;
+        border-radius: 8px;
+        margin-bottom: 1em;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+    }
+
+    .project-desc {
+        overflow: hidden;
+        width: 100%;
+        // padding: 0px .5em;
+        .project-title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .project-type {
+            font-size: .9em;
+            margin-bottom: .5em;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            span {
+                display: block;
+                padding: 4px 8px;
+                font-size: .8em;
+                background: rgba(0, 0, 0, .05);
+                margin-right: 10px;
+            }
+        }
+
+    }
+}
+
+.no-data {
+  width: 100%;
+  padding: 40px;
+  color: #777;
+  text-align: center;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.project-detail {
+  height: 100%;
+
+  .project-desc {
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+
+    & > div {
+      padding: 20px 20px 10px;
+    }
+
+    .label {
+      // font-weight: bold;
+      display: block;
+      font-size: 1.1em;
+      color: #aaa;
+      margin-bottom: .5em;
+    }
+
+    .heading {
+      text-align: left;
+      & > .title {
+        text-align: left;
+        margin-bottom: 0px;
+      }
+    }
+
+    .text {
+      white-space: break-spaces;
+    }
+
+    .scope, .summary, .heading {
+      width: 100%;
+    }
+
+    .tags {
+      // padding: 0px;
+      span {
+        margin: 0px 1em 1em 0px; 
+        font-size: .8em;
+      }
+    }
+  }
+
+  .project-picture {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #eee;
+    min-height: 200px;
+    
+    img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .project-snapshot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .snapshot-item {
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+    
+@media (min-width: $screen-md-min) {
+  .project-detail .project-desc {
+    & > div {
+      padding: 20px 0px 10px;
+    }
+    .scope { width: 33%; }
+    .summary { width: 67%; }
+  }
+
+  .project-detail .project-snapshot {
+    .snapshot-item {
+      width: calc(50% - 10px);
+    }
+  }
+}
+
+
+
+
+@include make-projects($screen-sm-min, 1, $projectGap);
+@include make-projects($screen-md-min, 1, $projectGap);
+@include make-projects($screen-lg-min, 2, $projectGap);
+@include make-projects($screen-xl-min, 3, $projectGap);

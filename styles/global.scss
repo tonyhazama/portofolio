@@ -1,0 +1,50 @@
+$primary-color: #281a12;
+
+
+@mixin create-button($class, $color, $bg, $hovercolor, $hoverbg){
+    .button.#{$class} {
+        color: $color;
+        background: $bg;
+
+        &:hover {
+            background: $hoverbg;
+            &, * { color: $hovercolor; }
+        }
+    }
+}
+
+#__next {
+    height: 100%;
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    padding: .5em 1em;
+    background: rgba(0, 0, 0, .05);
+    // margin: 0px 0px 1em;
+    border-radius: 4px;
+    transition: .3s;
+    width: auto;
+    * { transition: .3s; }
+    
+    &.lg {
+        font-size: 1.2em;
+    }
+
+
+    &:hover {
+        background: $primary-color;
+        &, * { color: #fff; }
+    }
+    
+}
+
+.custom-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+@include create-button('link', $primary-color, transparent, $primary-color, rgba(0, 0, 0, .05))
