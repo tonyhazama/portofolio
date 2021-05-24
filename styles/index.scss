@@ -1,8 +1,6 @@
 * {
     margin: 0px;
     padding: 0px;
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
     font-family: 'Poppins', Helvetica, sans-serif;
     color: #222;
     box-sizing: border-box;
@@ -11,11 +9,12 @@
 
 html, body {
     // min-height: 
+    width: 100%;
 }
 
 @mixin dynamic-container($minWidth, $padding){
     @media (min-width: $minWidth) {
-        .root {
+        .content {
             padding: $padding;
         }
 
@@ -35,15 +34,35 @@ html, body {
 
 @import './container', './global.scss', './projects.scss';
 
-.root{
+.root {
+    position: relative;
+}
+
+.root::before {
+  background: #281a12 url("/static/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+  z-index: -1;
+}
+
+.content{
     height: 100%;
     padding: 28px;
+    background: #fff;
 }
 
 .section {
     width: 100%;
     text-align: left;
-    background: #fff;
+    // background: #fff;
 }
 
 .section > div {
@@ -92,7 +111,9 @@ html, body {
 }
 
 .landing-section {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 0px);
+    transition: .3s;
+    z-index: 1;
 }
 
 .landing {
@@ -102,15 +123,24 @@ html, body {
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-color: $primary-color;
-    background: #281a12 url("/static/bg.jpg");
-    background-size: cover;
-    background-position: center;
+    // background-color: $primary-color;
     font-size: 12px;
-    border-radius: 16px;
+    // border-radius: 16px;
     padding: 20px;
     height: 100%;
     // min-height: 300px;
+
+    .title, .subtitle {
+        text-shadow: 0px 0px 14px rgba(40, 26, 18, 0.2);
+    }
+
+}
+
+.section-footer {
+    background: #281a12 url("/static/bg2.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 }
 
 @include dynamic-container($screen-md-min, 28px);
@@ -118,5 +148,5 @@ html, body {
 @include dynamic-container($screen-xl-min, 40px);
 
 
-@include dynamic-landing($screen-md-min, calc(100vh - 56px));
+@include dynamic-landing($screen-md-min, 100vh);
 @include dynamic-landing($screen-lg-min, 300px);

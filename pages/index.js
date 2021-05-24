@@ -8,7 +8,9 @@
 
 import Landing from '../components/landing';
 import Projects from '../components/projects';
+import Footer from '../components/footer';
 import Head from 'next/head';
+import Contact from '../components/contact';
 
 export default function Home() {
   return (
@@ -18,8 +20,11 @@ export default function Home() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Landing />
-      <Projects />
-      {/* <Footer /> */}
+      <div className="content">
+        <Projects />
+        <Contact />
+      </div>
+      <Footer />
     </div>
   )
 }

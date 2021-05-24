@@ -5,6 +5,10 @@ $projectGap: 40px;
   @media (min-width: $minWidth) {
     .projects > .project {
       width: calc((100% - (#{$projectGap} * (#{$projectCount} - 1))) / #{$projectCount});
+
+      .project-picture {
+        height: calc(200px + (180px / #{$projectCount}));
+      }
     }
   }
 }
@@ -13,14 +17,15 @@ $projectGap: 40px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 
   span {
     cursor: pointer;
     display: block;
     padding: .5em 2em;
     background: rgba(0, 0, 0, .05);
-    margin: 0px 10px 10px;
-    border-radius: 4px;
+    // margin: 0px 10px 10px;
+    //border-radius: 4px;
     transition: .3s;
   }
 
@@ -56,10 +61,10 @@ $projectGap: 40px;
     }
     
     .project-picture {
-        height: 320px;
-        box-shadow: 0px 0px 24px rgba(0, 0, 0, .2);
+        height: 200px;
+        box-shadow: 0px 0px 14px rgba(40, 26, 18, 0.1);
         background: #eee;
-        border-radius: 8px;
+        //border-radius: 8px;
         margin-bottom: 1em;
         overflow: hidden;
 
@@ -115,7 +120,7 @@ $projectGap: 40px;
   height: 100%;
 
   .project-desc {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     display: flex;
     flex-wrap: wrap;
 
@@ -147,10 +152,12 @@ $projectGap: 40px;
       width: 100%;
     }
 
-    .tags {
-      // padding: 0px;
+    .summary .tags {
+      margin-top: 20px;
+      justify-content: left;
+      
       span {
-        margin: 0px 1em 1em 0px; 
+        margin: 0em 1em 1em 0px; 
         font-size: .8em;
       }
     }
@@ -159,7 +166,7 @@ $projectGap: 40px;
   .project-picture {
     width: 100%;
     margin-bottom: 20px;
-    border-radius: 8px;
+    //border-radius: 8px;
     overflow: hidden;
     background: #eee;
     min-height: 200px;
@@ -178,7 +185,7 @@ $projectGap: 40px;
     gap: 20px;
 
     .snapshot-item {
-      border-radius: 8px;
+      //border-radius: 8px;
       overflow: hidden;
       width: 100%;
       img {
