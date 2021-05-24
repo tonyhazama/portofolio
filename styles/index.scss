@@ -1,44 +1,46 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Poppins', Helvetica, sans-serif;
-    color: #222;
-    box-sizing: border-box;
-    // font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  color: #222;
+  box-sizing: border-box;
+  // font-size: 14px;
 }
 
 html, body {
-    // min-height: 
-    width: 100%;
+  // min-height: 
+  width: 100%;
 }
 
 @mixin dynamic-container($minWidth, $padding){
-    @media (min-width: $minWidth) {
-        .content {
-            padding: $padding;
-        }
+  @media (min-width: $minWidth) {
+      .content {
+          padding: $padding;
+      }
 
-        .section.section.full-height:first-child, .section.section.full-height:last-child {
-            min-height: calc(100vh - #{$padding});
-        }
-    }
+      .section.section.full-height:first-child, .section.section.full-height:last-child {
+          min-height: calc(100vh - #{$padding});
+      }
+  }
 }
 
 @mixin dynamic-landing($minWidth, $height){
-    @media (min-width: $minWidth) {
-        .landing-section {
-            height: $height;
-        }
-    }
+  @media (min-width: $minWidth) {
+      .landing-section {
+          height: $height;
+      }
+  }
 }
 
 @import './container', './global.scss', './projects.scss';
 
 .root {
-    position: relative;
+  position: relative;
 }
 
 .root::before {
+  transition: 1s;
+  transition-timing-function: cubic-bezier(.19,1,.22,1);
   background: #281a12 url("/static/bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -46,6 +48,7 @@ html, body {
   content: "";
   height: 100vh;
   left: 0;
+  background-position: center var(--bgpos);
   position: fixed;
   top: 0;
   width: 100%;
@@ -54,93 +57,110 @@ html, body {
 }
 
 .content{
-    height: 100%;
-    padding: 28px;
-    background: #fff;
+  height: 100%;
+  padding: 28px;
+  background: #fff;
 }
 
 .section {
-    width: 100%;
-    text-align: left;
-    // background: #fff;
+  width: 100%;
+  text-align: left;
+  // background: #fff;
 }
 
 .section > div {
-    vertical-align: unset;
+  vertical-align: unset;
 }
 
 .section.center > div {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .section.dark-fade{
-    background: rgba(0, 0, 0, .3);
-    color: #fff;
+  background: rgba(0, 0, 0, .3);
+  color: #fff;
 }
 
 .section.dark-fade > div > * {
-    color: #fff;
+  color: #fff;
 }
 
 .section.full-height {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .section.center {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .section.padded{
-    padding: 40px 0px;
+  padding: 40px 0px;
 }
 
 .title {
-    color: inherit;
-    text-align: center;
+  color: inherit;
+  text-align: center;
 }
 
 
 .subtitle {
-    text-align: center;
-    color: inherit;
-    font-weight: normal;
+  text-align: center;
+  color: inherit;
+  font-weight: normal;
 }
 
 .landing-section {
-    height: calc(100vh - 0px);
-    transition: .3s;
-    z-index: 1;
+  height: calc(100vh - 0px);
+  transition: .3s;
+  z-index: 1;
 }
 
 .landing {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    // background-color: $primary-color;
-    font-size: 12px;
-    // border-radius: 16px;
-    padding: 20px;
-    height: 100%;
-    // min-height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  // background-color: $primary-color;
+  font-size: 12px;
+  // border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  // min-height: 300px;
 
-    .title, .subtitle {
-        text-shadow: 0px 0px 14px rgba(40, 26, 18, 0.2);
-    }
+  .title, .subtitle {
+      text-shadow: 0px 0px 14px rgba(40, 26, 18, 0.2);
+  }
 
 }
 
 .section-footer {
-    background: #281a12 url("/static/bg2.jpg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover;
+  background: #281a12 url("/static/bg2.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.contact-section {
+  p {
+      font-size: 1.4em;
+      margin-bottom: .5em;
+  }
+  .contact-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    .contact-icon {
+        font-size: 1.6em;
+    }
+  }
 }
 
 @include dynamic-container($screen-md-min, 28px);

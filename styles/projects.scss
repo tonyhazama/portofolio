@@ -46,7 +46,7 @@ $projectGap: 40px;
     $duration: 300ms;
     $delay: 150ms;
     width: 100%;
-    margin-bottom: calc(#{$projectGap} / 2);
+    // margin-bottom: calc(#{$projectGap} / 2);
     transition: $duration width $delay, $duration opacity, $duration margin $delay, $duration max-height $delay;
     cursor: pointer;
     max-height: 2000px;
@@ -86,7 +86,7 @@ $projectGap: 40px;
 
         .project-type {
             font-size: .9em;
-            margin-bottom: .5em;
+            // margin-bottom: .5em;
         }
 
         .project-tags {

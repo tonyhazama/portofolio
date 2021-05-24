@@ -9,18 +9,6 @@
 import { useEffect, useState } from "react";
 
  export default function Landing() {
-  const [isFixed, setIsFixed] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener('scroll', val => {
-      console.log(window.pageYOffset);
-      if (window.pageYOffset > 150) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    });
-  }, []);
 
   return (
     <div className="section landing-section">

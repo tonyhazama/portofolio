@@ -143,7 +143,7 @@ const MyProject = (props) => {
   return (
     <>
       <div className="project-picture">
-        <img src={thumbnail} />
+        <img src={require('../public'+thumbnail)} />
       </div>
       <div className="project-desc">
         <div className="project-title">{title}</div>

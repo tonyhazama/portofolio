@@ -11,16 +11,26 @@ import Projects from '../components/projects';
 import Footer from '../components/footer';
 import Head from 'next/head';
 import Contact from '../components/contact';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [bgPos, setBgPos] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', val => {
+      setBgPos(window.pageYOffset / 4);
+    });
+  }, []);
+
   return (
-    <div className="root">
+    <div className="root" style={{'--bgpos': `calc(100% - ${bgPos}px)`}}>
       <Head>
         <title>Portofolio</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Landing />
       <div className="content">
+        {setBgPos}
         <Projects />
         <Contact />
       </div>
