@@ -14,21 +14,29 @@ html, body {
 
 @mixin dynamic-container($minWidth, $padding){
   @media (min-width: $minWidth) {
-      .content {
-          padding: $padding;
-      }
+    .content {
+      padding: $padding;
+    }
 
-      .section.section.full-height:first-child, .section.section.full-height:last-child {
-          min-height: calc(100vh - #{$padding});
-      }
+    .section.section.full-height:first-child, .section.section.full-height:last-child {
+      min-height: calc(100vh - #{$padding});
+    }
   }
 }
 
 @mixin dynamic-landing($minWidth, $height){
   @media (min-width: $minWidth) {
-      .landing-section {
-          height: $height;
-      }
+    .landing-section {
+      min-height: $height;
+    }
+  }
+}
+
+@mixin dynamic-bg($minWidth, $bgpos){
+  @media (min-width: $minWidth) {
+    .root::before {
+      background-position: center $bgpos;
+    }
   }
 }
 
@@ -41,8 +49,7 @@ html, body {
 .root::before {
   transition: 1s;
   transition-timing-function: cubic-bezier(.19,1,.22,1);
-  background: #281a12 url("/static/bg.jpg");
-  background-repeat: no-repeat;
+  background: #281a12 url("/static/bg1.jpg");
   background-position: center;
   background-size: cover;
   content: "";
@@ -114,9 +121,11 @@ html, body {
 }
 
 .landing-section {
-  height: calc(100vh - 0px);
+  padding: 60px 0px 40px;
+  min-height: calc(100vh - 0px);
   transition: .3s;
   z-index: 1;
+  
 }
 
 .landing {
@@ -126,15 +135,30 @@ html, body {
   justify-content: center;
   align-items: center;
   color: #fff;
-  // background-color: $primary-color;
   font-size: 12px;
-  // border-radius: 16px;
   padding: 20px;
   height: 100%;
-  // min-height: 300px;
 
-  .title, .subtitle {
-      text-shadow: 0px 0px 14px rgba(40, 26, 18, 0.2);
+  .img-container {
+    width: 160px;
+    height: 160px;
+    border-radius: 100px;
+    overflow: hidden;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0px 0px 14px rgb(40, 26, 18, .5);
+    margin-bottom: 2em;
+
+    img {
+      border-radius: 100px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title, .subtitle, .img-container {
+    text-shadow: 0px 0px 14px rgb(40, 26, 18, 1);
   }
 
 }
@@ -148,8 +172,8 @@ html, body {
 
 .contact-section {
   p {
-      font-size: 1.4em;
-      margin-bottom: .5em;
+    font-size: 1.4em;
+    margin-bottom: .5em;
   }
   .contact-list {
     display: flex;
@@ -158,7 +182,7 @@ html, body {
     align-items: center;
 
     .contact-icon {
-        font-size: 1.6em;
+      font-size: 1.6em;
     }
   }
 }
@@ -169,4 +193,7 @@ html, body {
 
 
 @include dynamic-landing($screen-md-min, 100vh);
-@include dynamic-landing($screen-lg-min, 300px);
+@include dynamic-landing($screen-lg-min, auto);
+
+@include dynamic-bg($screen-md-min, var(--bgpos));
+@include dynamic-bg($screen-lg-min, calc(50% + var(--bgpos)));

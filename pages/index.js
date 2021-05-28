@@ -12,6 +12,7 @@ import Footer from '../components/footer';
 import Head from 'next/head';
 import Contact from '../components/contact';
 import { useEffect, useState } from 'react';
+import About from '../components/about';
 
 export default function Home() {
   const [bgPos, setBgPos] = useState(0);
@@ -23,14 +24,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="root" style={{'--bgpos': `calc(100% - ${bgPos}px)`}}>
+    <div className="root" style={{'--bgpos': `${-bgPos}px`}}>
       <Head>
         <title>Portofolio</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Landing />
       <div className="content">
-        {setBgPos}
         <Projects />
         <Contact />
       </div>

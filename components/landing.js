@@ -6,17 +6,18 @@
  * @desc This is my personal website
  */
 
-import { useEffect, useState } from "react";
-
  export default function Landing() {
 
   return (
-    <div className="section landing-section">
-      <div className="landing">
-        {/* <div className="container"> */}
+    <div className="section landing-section" style={{ display: 'flex' }}>
+      <div className="container">
+        <div className="landing">
+          <div className="img-container">
+            <img src={require('../public/static/profile.jpg')} />
+          </div>
           <h1 className="title">I am Muhammad Sultoni</h1>
-          <h3 className="subtitle">I'm a professional Web Developer.</h3>
-        {/* </div> */}
+          <h3 className="subtitle">I'm a Professional Web Developer. Currently working at <b style={{color: '#fff'}}>PT. Padepokan Tujuh Sembilan</b></h3>
+        </div>
       </div>
     </div>
   )
