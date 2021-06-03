@@ -31,8 +31,8 @@ export default function Home() {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <NextSeo
-        title="Using More of Config"
-        description="This example uses more of the available config options."
+        title="Muhammad Sultoni's Portofolio"
+        description="I'm a Professional Web Developer. Currently working at PT. Padepokan Tujuh Sembilan"
       />
       <Landing />
       <div className="content">
