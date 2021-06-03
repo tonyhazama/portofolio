@@ -164,25 +164,25 @@ html, body {
 }
 
 .section-footer {
-  background: #281a12 url("/static/bg2.jpg");
+  background: #eee;
+  padding: 20px 0px;
+  font-size: .8em;
+  text-align: center;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
 }
 
 .contact-section {
-  p {
-    font-size: 1.4em;
-    margin-bottom: .5em;
-  }
   .contact-list {
     display: flex;
     gap: 20px;
+    padding: 0px 80px;
     justify-content: center;
     align-items: center;
 
     .contact-icon {
-      font-size: 1.6em;
+      font-size: 1.4em;
     }
   }
 }

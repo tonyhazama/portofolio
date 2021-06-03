@@ -24,7 +24,7 @@ export const projects = [
       '/static/loyola2.jpg',
     ],
     tags: [0, 2],
-    description: `Kolese Loyola is a group of Projects that consist of New Student Admissions Application and Web Portal, Complete with Administrator side Application. 
+    description: `Kolese Loyola is a group of Projects that consist of New Student Admissions Application and Web Portal, Complete with separate Administrator Application. 
     \nThe Admissions System handle almost all steps and process of Kolese Loyola Student Admissions process starting from Personal Information Submission, Online Tests, Payment, and Re-registration. On the other hand, the Web Portal included information about Documentation, Future Plans, Development Funds and other information Related to the foundation.`,
   },
   {

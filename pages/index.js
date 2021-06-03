@@ -13,6 +13,7 @@ import Head from 'next/head';
 import Contact from '../components/contact';
 import { useEffect, useState } from 'react';
 import About from '../components/about';
+import { NextSeo } from 'next-seo';
 
 export default function Home() {
   const [bgPos, setBgPos] = useState(0);
@@ -26,9 +27,13 @@ export default function Home() {
   return (
     <div className="root" style={{'--bgpos': `${-bgPos}px`}}>
       <Head>
-        <title>Portofolio</title>
+        <title>Muhammad Sultoni</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        title="Using More of Config"
+        description="This example uses more of the available config options."
+      />
       <Landing />
       <div className="content">
         <Projects />
