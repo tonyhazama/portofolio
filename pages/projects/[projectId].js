@@ -26,7 +26,7 @@ export default function ProjectDetail(props) {
   const label = labels.en;
 
   return (
-    <div className="root project-detail">
+    <div className="content project-detail">
       <div className="container" style={{height: '100%'}}>
 
         <div className="project-desc">

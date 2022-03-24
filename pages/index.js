@@ -1,6 +1,7 @@
 import Landing from '../components/landing';
 import Projects from '../components/projects';
 import Head from 'next/head';
+import Header from '../components/header';
 
 export default function Home() {
   return (
@@ -8,8 +9,11 @@ export default function Home() {
       <Head>
         <title>Portofolio</title>
       </Head>
-      <Landing />
-      <Projects />
+      <Header />
+      <div className="content">
+        <Landing />
+        <Projects />
+      </div>
       {/* <Footer /> */}
     </div>
   )

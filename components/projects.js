@@ -71,27 +71,14 @@ export default function Projects() {
     isHidden: !e.tags.includes(activeTags)
   })) : projects;
   const activeProjectsLength = activeProjects.filter(e => !e.isHidden);
+  
   return (
     <div className="section padded full-height" style={{paddingTop: '80px'}}>
       <div className="container">
-        <div style={{textAlign: 'center', marginBottom: '2em'}}>
-          <h2 className="title">This is what i've worked on</h2>
-          <h4 className="subtitle">I'm a professional Web Developer.</h4>
-        </div>
-
         <div style={{textAlign: 'center', marginBottom: '4em'}}>
-          <div className="tags">
-            {tagList.map((tag, i) => {
-              const key = i === 0 ? '' : i;
-              return (
-                <span className={`${activeTags === key ? 'active' : ''}`} key={`tagItem${i}`} onClick={_ => {setActiveTags(key)}}>
-                  {tag}
-                </span>
-              )
-            })}
-          </div>
+          <h2 className="title">This is what i've worked on</h2>
+          <h4 className="subtitle">A curated list of professional work i did over the years.</h4>
         </div>
-        
         <div>
           <div className="projects">
             {activeProjects.map((project, projectId) => (

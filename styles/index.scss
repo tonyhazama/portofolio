@@ -15,8 +15,13 @@ html, body {
 
 @mixin dynamic-container($minWidth, $padding){
     @media (min-width: $minWidth) {
-        .root {
+        .content {
             padding: $padding;
+        }
+
+        .header-container {
+            padding-left: $padding;
+            padding-right: $padding;
         }
 
         .section.section.full-height:first-child, .section.section.full-height:last-child {
@@ -33,10 +38,13 @@ html, body {
     }
 }
 
-@import './container', './global.scss', './projects.scss';
+@import './container', './global.scss', './projects.scss', './header.scss';
 
 .root{
     height: 100%;
+}
+
+.content {
     padding: 28px;
 }
 
@@ -107,7 +115,7 @@ html, body {
     background-size: cover;
     background-position: center;
     font-size: 12px;
-    border-radius: 16px;
+    // border-radius: 16px;
     padding: 20px;
     height: 100%;
     // min-height: 300px;
