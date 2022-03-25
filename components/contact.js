@@ -8,8 +8,8 @@ export default function Contact() {
     <>
       <div className="section contact-section" style={{padding: '40px 0px 40px'}}>
         <div className="container">
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-            <div style={{flex: 1}}>{email} {`  |  `} {phone}</div>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'}}>
+            <div style={{flex: 1}}>{email}</div>
             <div className="contact-list">
               <a href='https://github.com/tonyhazama' target='_blank' rel="noopener noreferrer" className="contact-icon gh">
                 <GithubOutlined />

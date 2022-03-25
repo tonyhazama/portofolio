@@ -10,8 +10,13 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import Head from 'next/head';
-import { projects, tagList } from '../../components/projects';
+import { funProjects, workProjects, tagList } from '../../const';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+
+const projects = {
+  work: workProjects,
+  fun: funProjects
+};
 
 const labels = {
   id: {
@@ -26,14 +31,13 @@ const labels = {
     tags: 'Stacks',
     goBack: 'Go Back',
   },
-} 
+};
 
 export default function ProjectDetail(props) {
-  const router = useRouter()
-  const { projectId } = router.query;
-  const project = projects[projectId] || {};
+  const router = useRouter();
+  const { type, projectId } = router.query;
+  const project = projects[type][projectId] || {};
   const label = labels.en;
-
   return (
     <div className="root">
       <Head>

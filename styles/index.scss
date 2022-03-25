@@ -15,11 +15,16 @@ html, body {
 @mixin dynamic-container($minWidth, $padding){
   @media (min-width: $minWidth) {
     .content {
-      padding: $padding;
+        padding: $padding;
+    }
+
+    .header-container {
+        padding-left: $padding;
+        padding-right: $padding;
     }
 
     .section.section.full-height:first-child, .section.section.full-height:last-child {
-      min-height: calc(100vh - #{$padding});
+        min-height: calc(100vh - #{$padding});
     }
   }
 }
@@ -40,7 +45,7 @@ html, body {
   }
 }
 
-@import './container', './global.scss', './projects.scss';
+@import './container', './global.scss', './projects.scss', './header.scss';
 
 .root {
   position: relative;
@@ -121,7 +126,7 @@ html, body {
 }
 
 .landing-section {
-  padding: 60px 0px 40px;
+  padding: 180px 0px 40px;
   min-height: calc(100vh - 0px);
   transition: .3s;
   z-index: 1;

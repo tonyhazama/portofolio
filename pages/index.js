@@ -14,6 +14,8 @@ import Contact from '../components/contact';
 import { useEffect, useState } from 'react';
 import About from '../components/about';
 import { NextSeo } from 'next-seo';
+import Header from '../components/header';
+import { funProjects } from '../const';
 
 export default function Home() {
   const [bgPos, setBgPos] = useState(0);
@@ -34,9 +36,17 @@ export default function Home() {
         title="Muhammad Sultoni's Portofolio"
         description="I'm a Professional Web Developer. Currently working at PT. Padepokan Tujuh Sembilan"
       />
+      <Header />
       <Landing />
       <div className="content">
-        <Projects />
+        <Projects 
+          title="This is what i've worked on"
+          description="A curated list of professional work i did over the years."
+          projects={funProjects} />
+        <Projects 
+          title="This is what i make on my free time"
+          description="Fun Project, experiments and other interesting stuff."
+          projects={funProjects} />
         <Contact />
       </div>
       <Footer />
