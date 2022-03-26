@@ -6,12 +6,13 @@
  * @desc This is my personal website
  */
 
- import React from 'react';
-import { useRouter } from 'next/router'
+ import React, {useEffect} from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
 import { funProjects, workProjects, tagList } from '../../const';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useState } from 'react/cjs/react.development';
 
 const projects = {
   work: workProjects,
@@ -36,15 +37,27 @@ const labels = {
 export default function ProjectDetail(props) {
   const router = useRouter();
   const { type, projectId } = router.query;
-  const project = projects[type][projectId] || {};
+  // const [project, setProject] = useState();
+  let project;
   const label = labels.en;
+  if (type && projectId) {
+    project = projects[type][projectId];
+    // setProject(projects[type][projectId]);
+  }
+
+  useEffect(() => {
+    if (!type && !projectId) {
+      router.push('/');
+    }
+  }, []);
+  
   return (
     <div className="root">
       <Head>
         <title>Project</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <div className="content project-detail">
+      {project && <div className="content project-detail">
         <div className="container" style={{height: '100%'}}>
           <div className="project-desc">
             <div>
@@ -91,7 +104,7 @@ export default function ProjectDetail(props) {
             })}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }
